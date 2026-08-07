@@ -1,108 +1,84 @@
-import { motion } from "framer-motion";
-import Dashboard from "./Dashboard";
-import HeroBadge from "./HeroBadge";
-
 function Hero() {
   return (
-    <section className="bg-white pt-36 pb-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 grid-cols-1 items-center gap-20">
+    <section
+      id="home"
+      className="pt-32 pb-20 bg-white"
+    >
+      <div className="max-w-7xl mx-auto px-6">
 
-        {/* Left Side */}
-        <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* Premium Badge */}
-          <HeroBadge />
+          {/* Left Side */}
+          <div>
 
-          <h1 className="text-6xl font-bold text-gray-900 leading-tight mt-6">
-            Complete Online
-            <br />
-            Business Solutions
-            <br />
-            For Modern Businesses
-          </h1>
+            <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+              Welcome to BizEngine
+            </span>
 
-          <p className="text-gray-600 text-lg leading-8 mt-8 max-w-xl">
-            We help entrepreneurs and businesses grow through Website
-            Development, E-Commerce Business Management Training, Digital
-            Marketing, Social Media Management, B2B Business Channel Setup,
-            E-Commerce Channel Setup, Business Consulting and Complete Online
-            Business Solutions.
-          </p>
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mt-6">
+              Complete
+              <br />
+              Online Business
+              <br />
+              Solutions
+            </h1>
 
-          {/* Buttons */}
+            <p className="mt-6 text-lg text-gray-600 leading-8">
+              BizEngine helps startups, entrepreneurs and businesses
+              establish a strong online presence through Website
+              Development, Digital Marketing, E-Commerce Setup,
+              B2B Business Solutions and Business Consulting.
+            </p>
 
-          <div className="flex flex-wrap gap-5 mt-10">
+            <div className="flex flex-wrap gap-4 mt-10">
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg"
-            >
-              Get Started
-            </motion.button>
+              <a
+                href="#contact"
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition"
+              >
+                Get Free Quote
+              </a>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-semibold transition"
-            >
-              Free Consultation
-            </motion.button>
+              <a
+                href="https://wa.me/91XXXXXXXXXX"
+                target="_blank"
+                rel="noreferrer"
+                className="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg hover:bg-blue-600 hover:text-white transition"
+              >
+                WhatsApp
+              </a>
 
-          </div>
-
-          {/* Stats */}
-
-          <div className="flex flex-wrap gap-10 mt-14">
-
-            <div>
-              <h2 className="text-3xl font-bold text-blue-600">
-                500+
-              </h2>
-
-              <p className="text-gray-500">
-                Businesses
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold text-blue-600">
-                1000+
-              </h2>
-
-              <p className="text-gray-500">
-                Students
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold text-blue-600">
-                98%
-              </h2>
-
-              <p className="text-gray-500">
-                Success Rate
-              </p>
             </div>
 
           </div>
 
-        </motion.div>
+          {/* Right Side */}
 
-        {/* Right Side */}
+          <div className="flex justify-center">
 
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9 }}
-          className="flex justify-center"
-        >
-          <Dashboard />
-        </motion.div>
+            <div className="w-full max-w-lg h-[420px] rounded-3xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center shadow-xl">
+
+              <div className="text-center">
+
+                <div className="text-7xl mb-4">
+                  💼
+                </div>
+
+                <h2 className="text-3xl font-bold text-blue-700">
+                  BizEngine
+                </h2>
+
+                <p className="text-gray-600 mt-3">
+                  Complete Online Business Solutions
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
     </section>

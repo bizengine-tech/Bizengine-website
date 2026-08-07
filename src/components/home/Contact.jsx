@@ -1,117 +1,215 @@
-import { motion } from "framer-motion";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_gw0k88s",
+        "template_k7heh6l",
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.service,
+          message: formData.message,
+        },
+        "etS6cZjkOguq9eaBE"
+      )
+      .then(() => {
+        alert("✅ Thank you! Your inquiry has been sent successfully.");
+
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          service: "",
+          message: "",
+        });
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+
+        alert("❌ Failed to send inquiry. Please try again.");
+
+        setLoading(false);
+      });
+  };
+
   return (
-    <section className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-blue-600 font-semibold uppercase tracking-wider">
+        <div className="text-center">
+          <span className="text-blue-600 uppercase tracking-widest font-semibold">
             Contact Us
-          </p>
+          </span>
 
-          <h2 className="text-5xl font-bold text-gray-900 mt-3">
-            Let's Grow Your Business
+          <h2 className="text-5xl font-bold text-gray-900 mt-5">
+            Let's Build Your Business Together
           </h2>
 
-          <p className="text-gray-600 mt-5 text-lg">
-            We'd love to hear about your project. Get in touch today.
+          <p className="text-gray-600 mt-6 max-w-3xl mx-auto text-lg leading-8">
+            Have a project or business idea? Contact us today and we'll help
+            you choose the right solution for your business.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 mt-16">
 
-          {/* Left Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          {/* Contact Details */}
 
-            <div className="flex items-center gap-5">
-              <div className="bg-blue-100 p-4 rounded-xl text-blue-600">
-                <FaPhoneAlt size={24} />
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+
+            <h3 className="text-2xl font-bold mb-8">
+              Contact Information
+            </h3>
+
+            <div className="space-y-6">
+
+              <div>
+                <h4 className="font-semibold text-blue-600">📞 Phone</h4>
+                <p className="text-gray-600">+91 8938855925</p>
               </div>
 
               <div>
-                <h3 className="font-bold text-xl">Phone</h3>
-                <p className="text-gray-600">+91 XXXXX XXXXX</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-5">
-              <div className="bg-blue-100 p-4 rounded-xl text-blue-600">
-                <FaEnvelope size={24} />
+                <h4 className="font-semibold text-blue-600">💬 WhatsApp</h4>
+                <p className="text-gray-600">+91 8938855925</p>
               </div>
 
               <div>
-                <h3 className="font-bold text-xl">Email</h3>
-                <p className="text-gray-600">info@bizengine.in</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-5">
-              <div className="bg-blue-100 p-4 rounded-xl text-blue-600">
-                <FaMapMarkerAlt size={24} />
+                <h4 className="font-semibold text-blue-600">📧 Email</h4>
+                <p className="text-gray-600">
+                  bizengine10@gmail.com
+                </p>
               </div>
 
               <div>
-                <h3 className="font-bold text-xl">Location</h3>
-                <p className="text-gray-600">Meerut, Uttar Pradesh, India</p>
+                <h4 className="font-semibold text-blue-600">📍 Address</h4>
+                <p className="text-gray-600">
+                  Meerut, Uttar Pradesh, India
+                </p>
               </div>
+
             </div>
 
-          </motion.div>
+          </div>
 
-          {/* Right Side Form */}
-          <motion.form
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-3xl p-8 shadow-lg"
-          >
+          {/* Contact Form */}
 
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full p-4 rounded-xl border mb-5 outline-none"
-            />
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
 
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full p-4 rounded-xl border mb-5 outline-none"
-            />
+            <form onSubmit={sendEmail} className="space-y-5">
 
-            <input
-              type="text"
-              placeholder="Phone Number"
-              className="w-full p-4 rounded-xl border mb-5 outline-none"
-            />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-3 focus:border-blue-600 outline-none"
+              />
 
-            <textarea
-              rows="5"
-              placeholder="Your Message"
-              className="w-full p-4 rounded-xl border mb-5 outline-none"
-            ></textarea>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-3 focus:border-blue-600 outline-none"
+              />
 
-            <button
-              className="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition"
-            >
-              Send Message
-            </button>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-3 focus:border-blue-600 outline-none"
+              />
 
-          </motion.form>
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-3 focus:border-blue-600 outline-none"
+              >
+                <option value="">Select Service</option>
+                <option>Website Development</option>
+                <option>Digital Marketing</option>
+                <option>E-Commerce Setup</option>
+                <option>B2B Business Setup</option>
+                <option>GST Registration</option>
+                <option>Social Media Management</option>
+                <option>Business Consulting</option>
+              </select>
+
+              <textarea
+                rows="5"
+                name="message"
+                placeholder="Write your message..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-lg px-4 py-3 focus:border-blue-600 outline-none"
+              />
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition"
+              >
+                {loading ? "Sending..." : "Send Inquiry"}
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+        {/* Google Map */}
+
+        <div className="mt-16">
+
+          <iframe
+            title="BizEngine Location"
+            src="https://www.google.com/maps?q=Meerut,Uttar%20Pradesh&output=embed"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-2xl shadow-lg"
+          ></iframe>
 
         </div>
 

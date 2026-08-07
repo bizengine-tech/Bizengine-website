@@ -1,140 +1,84 @@
-import { motion } from "framer-motion";
-import {
-  FaCheckCircle,
-  FaLaptopCode,
-  FaBullhorn,
-  FaShoppingCart,
-  FaUsers,
-} from "react-icons/fa";
-
 function About() {
-  const features = [
-    {
-      icon: <FaLaptopCode />,
-      title: "Website Development",
-    },
-    {
-      icon: <FaBullhorn />,
-      title: "Digital Marketing",
-    },
-    {
-      icon: <FaShoppingCart />,
-      title: "E-Commerce Solutions",
-    },
-    {
-      icon: <FaUsers />,
-      title: "Business Consulting",
-    },
-  ];
-
   return (
-    <section
-      id="about"
-      className="py-24 bg-gradient-to-b from-gray-50 to-white"
-    >
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+    <section id="about" className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
 
-        {/* Left Side */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: .7 }}
-          viewport={{ once: true }}
-          className="relative"
-        >
+          {/* Left Side */}
+          <div className="flex justify-center">
 
-          <div className="h-[500px] rounded-[40px] bg-gradient-to-br from-blue-600 via-indigo-500 to-sky-500 shadow-2xl flex flex-col items-center justify-center text-white">
+            <div className="w-full max-w-md h-[420px] bg-white rounded-3xl shadow-lg border flex items-center justify-center">
 
-            <h2 className="text-6xl font-bold">
-              BizEngine
-            </h2>
+              <div className="text-center">
+                <div className="text-7xl mb-5">🏢</div>
 
-            <p className="mt-4 text-xl opacity-90">
-              Complete Online Business Solutions
-            </p>
+                <h3 className="text-3xl font-bold text-blue-600">
+                  BizEngine
+                </h3>
 
-          </div>
-
-          {/* Floating Card */}
-
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 4,
-            }}
-            className="absolute -bottom-8 -right-8 bg-white rounded-3xl shadow-xl px-8 py-6"
-          >
-            <h3 className="text-4xl font-bold text-blue-600">
-              500+
-            </h3>
-
-            <p className="text-gray-500">
-              Businesses Supported
-            </p>
-          </motion.div>
-
-        </motion.div>
-
-        {/* Right Side */}
-
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: .7 }}
-          viewport={{ once: true }}
-        >
-
-          <span className="text-blue-600 font-semibold uppercase tracking-wider">
-            About BizEngine
-          </span>
-
-          <h2 className="text-5xl font-bold text-gray-900 mt-5 leading-tight">
-            We Build Businesses,
-            <br />
-            Not Just Websites.
-          </h2>
-
-          <p className="text-gray-600 text-lg leading-8 mt-8">
-            BizEngine helps startups, entrepreneurs and businesses
-            establish a powerful online presence through Website
-            Development, Digital Marketing, E-Commerce Setup,
-            Social Media Management and Business Consulting.
-          </p>
-
-          <div className="grid sm:grid-cols-2 gap-5 mt-10">
-
-            {features.map((item, index) => (
-
-              <div
-                key={index}
-                className="flex items-center gap-4 bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition"
-              >
-
-                <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-
-                  {item.icon}
-
-                </div>
-
-                <h4 className="font-semibold">
-                  {item.title}
-                </h4>
-
+                <p className="text-gray-600 mt-3">
+                  Professional Business Solutions
+                </p>
               </div>
 
-            ))}
+            </div>
 
           </div>
 
-          <button className="mt-10 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition">
-            Learn More
-          </button>
+          {/* Right Side */}
 
-        </motion.div>
+          <div>
+
+            <span className="text-blue-600 font-semibold uppercase tracking-widest">
+              About BizEngine
+            </span>
+
+            <h2 className="text-5xl font-bold text-gray-900 mt-5 leading-tight">
+              Your Trusted Partner
+              <br />
+              For Online Business Growth
+            </h2>
+
+            <p className="text-gray-600 text-lg leading-8 mt-6">
+              BizEngine is a professional business solutions company helping
+              startups, entrepreneurs and growing businesses establish a
+              powerful online presence. From website development to digital
+              marketing and e-commerce setup, we provide everything required
+              to grow your business online.
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-5 mt-10">
+
+              <div className="bg-white p-5 rounded-xl shadow">
+                <h4 className="font-bold text-blue-600">
+                  ✓ Professional Service
+                </h4>
+              </div>
+
+              <div className="bg-white p-5 rounded-xl shadow">
+                <h4 className="font-bold text-blue-600">
+                  ✓ Affordable Pricing
+                </h4>
+              </div>
+
+              <div className="bg-white p-5 rounded-xl shadow">
+                <h4 className="font-bold text-blue-600">
+                  ✓ Fast Delivery
+                </h4>
+              </div>
+
+              <div className="bg-white p-5 rounded-xl shadow">
+                <h4 className="font-bold text-blue-600">
+                  ✓ Customer Support
+                </h4>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
     </section>
