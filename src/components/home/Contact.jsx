@@ -1,5 +1,11 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import {
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -60,10 +66,15 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="contact"
+      className="relative py-24 overflow-hidden bg-transparent"
+    >
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="text-center">
+
           <span className="text-blue-600 uppercase tracking-widest font-semibold">
             Contact Us
           </span>
@@ -76,42 +87,91 @@ function Contact() {
             Have a project or business idea? Contact us today and we'll help
             you choose the right solution for your business.
           </p>
+
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mt-16">
 
           {/* Contact Details */}
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-lg">
 
             <h3 className="text-2xl font-bold mb-8">
               Contact Information
             </h3>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
 
-              <div>
-                <h4 className="font-semibold text-blue-600">📞 Phone</h4>
-                <p className="text-gray-600">+91 8938855925</p>
+              <div className="flex items-center gap-4">
+
+                <FaPhoneAlt className="text-blue-600 text-2xl" />
+
+                <div>
+
+                  <h4 className="font-semibold text-blue-600">
+                    Phone
+                  </h4>
+
+                  <p className="text-gray-600">
+                    +91 8938855925
+                  </p>
+
+                </div>
+
               </div>
 
-              <div>
-                <h4 className="font-semibold text-blue-600">💬 WhatsApp</h4>
-                <p className="text-gray-600">+91 8938855925</p>
+              <div className="flex items-center gap-4">
+
+                <FaWhatsapp className="text-green-500 text-2xl" />
+
+                <div>
+
+                  <h4 className="font-semibold text-blue-600">
+                    WhatsApp
+                  </h4>
+
+                  <p className="text-gray-600">
+                    +91 8938855925
+                  </p>
+
+                </div>
+
               </div>
 
-              <div>
-                <h4 className="font-semibold text-blue-600">📧 Email</h4>
-                <p className="text-gray-600">
-                  bizengine10@gmail.com
-                </p>
+              <div className="flex items-center gap-4">
+
+                <FaEnvelope className="text-red-500 text-2xl" />
+
+                <div>
+
+                  <h4 className="font-semibold text-blue-600">
+                    Email
+                  </h4>
+
+                  <p className="text-gray-600">
+                    bizengine10@gmail.com
+                  </p>
+
+                </div>
+
               </div>
 
-              <div>
-                <h4 className="font-semibold text-blue-600">📍 Address</h4>
-                <p className="text-gray-600">
-                  Meerut, Uttar Pradesh, India
-                </p>
+              <div className="flex items-center gap-4">
+
+                <FaMapMarkerAlt className="text-blue-600 text-2xl" />
+
+                <div>
+
+                  <h4 className="font-semibold text-blue-600">
+                    Address
+                  </h4>
+
+                  <p className="text-gray-600">
+                    Meerut, Uttar Pradesh, India
+                  </p>
+
+                </div>
+
               </div>
 
             </div>
@@ -120,7 +180,7 @@ function Contact() {
 
           {/* Contact Form */}
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-lg">
 
             <form onSubmit={sendEmail} className="space-y-5">
 
@@ -161,6 +221,7 @@ function Contact() {
                 required
                 className="w-full border rounded-lg px-4 py-3 focus:border-blue-600 outline-none"
               >
+
                 <option value="">Select Service</option>
                 <option>Website Development</option>
                 <option>Digital Marketing</option>
@@ -168,7 +229,9 @@ function Contact() {
                 <option>B2B Business Setup</option>
                 <option>GST Registration</option>
                 <option>Social Media Management</option>
-                <option>Business Consulting</option>
+                <option>Business Consultation</option>
+                <option>Complete Business Solutions</option>
+
               </select>
 
               <textarea
@@ -184,7 +247,7 @@ function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition duration-300 font-semibold"
               >
                 {loading ? "Sending..." : "Send Inquiry"}
               </button>
@@ -194,8 +257,7 @@ function Contact() {
           </div>
 
         </div>
-
-        {/* Google Map */}
+                {/* Google Map */}
 
         <div className="mt-16">
 
@@ -208,12 +270,13 @@ function Contact() {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-2xl shadow-lg"
+            className="rounded-3xl shadow-2xl border border-white/50"
           ></iframe>
 
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -1,86 +1,109 @@
+import { ArrowRight } from "lucide-react";
+import heroImage from "../../assets/images/hero/hero-business.png";
+
 function Hero() {
   return (
     <section
-      id="home"
-      className="pt-32 pb-20 bg-white"
+      id="hero"
+      className="relative overflow-hidden bg-transparent"
     >
-      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-4">
 
-          {/* Left Side */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left */}
+
           <div>
 
-            <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
-              Welcome to BizEngine
+            <span className="inline-flex items-center px-5 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold">
+
+              🚀 Complete Online Business Solutions
+
             </span>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mt-6">
-              Complete
+            <h1 className="mt-8 text-5xl lg:text-7xl font-black leading-tight text-gray-900">
+
+              Grow Your
+
               <br />
-              Online Business
+
+              Business With
+
               <br />
-              Solutions
+
+              <span className="text-blue-600">
+
+                Smart Digital
+
+                <br />
+
+                Solutions
+
+              </span>
+
             </h1>
 
-            <p className="mt-6 text-lg text-gray-600 leading-8">
-              BizEngine helps startups, entrepreneurs and businesses
-              establish a strong online presence through Website
-              Development, Digital Marketing, E-Commerce Setup,
-              B2B Business Solutions and Business Consulting.
+            <p className="mt-8 text-lg text-gray-600 leading-9 max-w-xl">
+
+              We help businesses build websites,
+              grow online through Digital Marketing,
+              launch on E-Commerce platforms,
+              generate B2B leads and scale faster.
+
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-10">
+            <div className="flex flex-wrap gap-5 mt-10">
 
               <a
                 href="#contact"
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition"
+                className="bg-blue-600 hover:bg-blue-700 duration-300 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-3"
               >
+
                 Get Free Quote
+
+                <ArrowRight size={20} />
+
               </a>
 
               <a
-                href="https://wa.me/91XXXXXXXXXX"
+                href="https://wa.me/918938855925"
                 target="_blank"
                 rel="noreferrer"
-                className="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg hover:bg-blue-600 hover:text-white transition"
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white duration-300 px-8 py-4 rounded-xl font-semibold"
               >
+
                 WhatsApp
+
               </a>
 
             </div>
 
           </div>
 
-          {/* Right Side */}
+          {/* Right */}
 
-          <div className="flex justify-center">
+          <div className="flex justify-center relative">
 
-            <div className="w-full max-w-lg h-[420px] rounded-3xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center shadow-xl">
+            <img
+              src={heroImage}
+              alt="BizEngine"
+              className="w-full max-w-xl lg:max-w-2xl object-contain"
+            />
 
-              <div className="text-center">
+            {/* Left Edge Fade */}
 
-                <div className="text-7xl mb-4">
-                  💼
-                </div>
+            <div className="absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-blue-50 to-transparent pointer-events-none"></div>
 
-                <h2 className="text-3xl font-bold text-blue-700">
-                  BizEngine
-                </h2>
+            {/* Right Edge Fade */}
 
-                <p className="text-gray-600 mt-3">
-                  Complete Online Business Solutions
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
+            <div className="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-blue-100 to-transparent pointer-events-none"></div>
+                      </div>
 
         </div>
 
       </div>
+
     </section>
   );
 }

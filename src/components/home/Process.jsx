@@ -3,43 +3,59 @@ import {
   FaClipboardList,
   FaLaptopCode,
   FaRocket,
+  FaChartLine,
 } from "react-icons/fa";
 
 function Process() {
   const steps = [
     {
-      icon: <FaComments size={36} />,
+      icon: <FaComments size={38} />,
       number: "01",
-      title: "Contact Us",
+      title: "Consultation",
       description:
-        "Share your business requirements with our team through call, WhatsApp or email.",
+        "We understand your business goals and discuss the best strategy for your success.",
     },
+
     {
-      icon: <FaClipboardList size={36} />,
+      icon: <FaClipboardList size={38} />,
       number: "02",
-      title: "Requirement Discussion",
+      title: "Planning",
       description:
-        "We understand your business goals and suggest the best solution for your needs.",
+        "Our team prepares a proper roadmap and selects the right solutions for your business.",
     },
+
     {
-      icon: <FaLaptopCode size={36} />,
+      icon: <FaLaptopCode size={38} />,
       number: "03",
       title: "Development",
       description:
-        "Our team starts working on your website, marketing or business setup professionally.",
+        "We develop your website, business setup and digital solutions with complete professionalism.",
     },
+
     {
-      icon: <FaRocket size={36} />,
+      icon: <FaRocket size={38} />,
       number: "04",
-      title: "Delivery & Support",
+      title: "Launch",
       description:
-        "Project delivery with complete support to help your business grow successfully.",
+        "After final testing, we launch your project smoothly and ensure everything works perfectly.",
+    },
+
+    {
+      icon: <FaChartLine size={38} />,
+      number: "05",
+      title: "Growth",
+      description:
+        "Even after launch, we continue supporting your business to achieve long-term growth.",
     },
   ];
 
   return (
-    <section id="process" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="process"
+      className="relative py-24 overflow-hidden bg-transparent"
+    >
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="text-center">
 
@@ -52,19 +68,19 @@ function Process() {
           </h2>
 
           <p className="text-gray-600 mt-6 text-lg max-w-3xl mx-auto leading-8">
-            Our simple 4-step process ensures smooth communication and
-            successful project delivery.
+            Our simple 5-step process ensures smooth communication,
+            efficient execution and long-term business growth.
           </p>
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mt-16">
 
           {steps.map((step, index) => (
 
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-md border hover:shadow-xl hover:border-blue-500 transition"
+              className="bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-white/50 hover:border-blue-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
 
               <div className="flex justify-between items-center mb-6">
@@ -85,7 +101,7 @@ function Process() {
 
               <p className="text-gray-600 mt-4 leading-7">
                 {step.description}
-              </p>
+                              </p>
 
             </div>
 
@@ -94,6 +110,7 @@ function Process() {
         </div>
 
       </div>
+
     </section>
   );
 }

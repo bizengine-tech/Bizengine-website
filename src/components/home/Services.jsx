@@ -12,59 +12,69 @@ import {
 function Services() {
   const services = [
     {
-      icon: <FaLaptopCode size={38} />,
-      title: "Website Development",
+      icon: <FaBriefcase size={42} />,
+      title: "Business Consultation",
       description:
-        "Professional business and company websites with responsive design.",
+        "Expert consultation and strategic guidance to grow your business.",
     },
+
     {
-      icon: <FaBullhorn size={38} />,
-      title: "Digital Marketing",
-      description:
-        "Grow your business through social media and online marketing.",
-    },
-    {
-      icon: <FaShoppingCart size={38} />,
-      title: "E-Commerce Setup",
-      description:
-        "Amazon, Flipkart, Meesho and online store setup services.",
-    },
-    {
-      icon: <FaUsers size={38} />,
-      title: "B2B Business Setup",
-      description:
-        "IndiaMART and other B2B platform account setup & management.",
-    },
-    {
-      icon: <FaFileInvoice size={38} />,
-      title: "GST Registration",
-      description:
-        "Quick and hassle-free GST registration and related services.",
-    },
-    {
-      icon: <FaGlobe size={38} />,
-      title: "Social Media Management",
-      description:
-        "Professional management of Facebook, Instagram and other platforms.",
-    },
-    {
-      icon: <FaChartLine size={38} />,
-      title: "Business Consulting",
-      description:
-        "Expert guidance to grow your business with the right strategy.",
-    },
-    {
-      icon: <FaBriefcase size={38} />,
+      icon: <FaGlobe size={42} />,
       title: "Complete Business Solutions",
       description:
         "One place for all your online business and branding needs.",
     },
+
+    {
+      icon: <FaUsers size={42} />,
+      title: "B2B Business Setup",
+      description:
+        "IndiaMART and other B2B platform account setup & management.",
+    },
+
+    {
+      icon: <FaShoppingCart size={42} />,
+      title: "E-Commerce Setup",
+      description:
+        "Amazon, Flipkart, Meesho and online store setup services.",
+    },
+
+    {
+      icon: <FaBullhorn size={42} />,
+      title: "Digital Marketing",
+      description:
+        "Grow your business through social media and online marketing.",
+    },
+
+    {
+      icon: <FaChartLine size={42} />,
+      title: "Social Media Management",
+      description:
+        "Professional management of Facebook, Instagram and other platforms.",
+    },
+
+    {
+      icon: <FaLaptopCode size={42} />,
+      title: "Website Development",
+      description:
+        "Professional business and company websites with responsive design.",
+    },
+
+    {
+      icon: <FaFileInvoice size={42} />,
+      title: "GST Services",
+      description:
+        "Quick and hassle-free GST registration and related services.",
+    },
   ];
 
   return (
-    <section id="services" className="py-24 bg-white">
+    <section
+      id="services"
+      className="relative py-24 overflow-hidden bg-transparent"
+    >
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="text-center">
 
@@ -89,7 +99,7 @@ function Services() {
 
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl p-8 border hover:border-blue-500 hover:shadow-xl transition duration-300"
+              className="bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-white/50 hover:border-blue-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
 
               <div className="text-blue-600 mb-6">
@@ -103,8 +113,7 @@ function Services() {
               <p className="text-gray-600 mt-4 leading-7">
                 {service.description}
               </p>
-
-            </div>
+                          </div>
 
           ))}
 
