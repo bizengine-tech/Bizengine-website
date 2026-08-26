@@ -252,6 +252,13 @@ function Footer() {
             © {new Date().getFullYear()} BizEngine. All Rights Reserved.
           </p>
 
+          <a
+            href="/privacy-policy"
+            className="inline-block mt-3 hover:text-white transition"
+          >
+            Privacy Policy
+          </a>
+
         </div>
 
       </div>

@@ -10,8 +10,13 @@ import Footer from "./components/home/Footer";
 
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 function App() {
+  if (window.location.pathname === "/privacy-policy") {
+    return <PrivacyPolicy />;
+  }
+
   return (
     <div className="min-h-screen bg-blue-50">
 

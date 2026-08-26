@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import {
   FaPhoneAlt,
   FaWhatsapp,
@@ -16,8 +15,6 @@ function Contact() {
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,44 +22,24 @@ function Contact() {
     });
   };
 
-  const sendEmail = (e) => {
+  const sendToWhatsApp = (e) => {
     e.preventDefault();
 
-    setLoading(true);
+    const whatsappMessage = `Hello BizEngine,
 
-    emailjs
-      .send(
-        "service_gw0k88s",
-        "template_k7heh6l",
-        {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          service: formData.service,
-          message: formData.message,
-        },
-        "etS6cZjkOguq9eaBE"
-      )
-      .then(() => {
-        alert("✅ Thank you! Your inquiry has been sent successfully.");
+I would like to enquire about your services.
 
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          service: "",
-          message: "",
-        });
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Service: ${formData.service}
+Message: ${formData.message}`;
 
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-
-        alert("❌ Failed to send inquiry. Please try again.");
-
-        setLoading(false);
-      });
+    window.open(
+      `https://wa.me/918938855925?text=${encodeURIComponent(whatsappMessage)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -182,7 +159,7 @@ function Contact() {
 
           <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-lg">
 
-            <form onSubmit={sendEmail} className="space-y-5">
+            <form onSubmit={sendToWhatsApp} className="space-y-5">
 
               <input
                 type="text"
@@ -246,10 +223,9 @@ function Contact() {
 
               <button
                 type="submit"
-                disabled={loading}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition duration-300 font-semibold"
               >
-                {loading ? "Sending..." : "Send Inquiry"}
+                Send Inquiry on WhatsApp
               </button>
 
             </form>
